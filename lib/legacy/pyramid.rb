@@ -1,17 +1,22 @@
 module Legacy
   class Pyramid
-    attr_accessor :type
-
     def self.build(type:)
-      new(:type => type)
+      new(type: type)
     end
 
-    def initialize(type:)
-      self.type = type
+    def initialize(pyramids: Legacy::YamlLoader.load_legacy_config["pyramids"], type:)
+      @type = type
+      @pyramids = pyramids
+      @pyramid = pyramids[type]
+    end
+
+    def type=(new_type)
+      @type = new_type
+      @pyramid = @pyramids[new_type]
     end
 
     def show
-      puts self.type
+      puts @pyramid
     end
 
   end

@@ -10,10 +10,8 @@ module Legacy
     end
 
     def self.build_pyramid
-      pyramids = load_legacy_config["pyramids"]
       my_pyramid = load_my_legacy_config["pyramid"]
-
-      Pyramid.build(type: pyramids[my_pyramid])
+      Pyramid.build(type: my_pyramid)
     end
 
   end
