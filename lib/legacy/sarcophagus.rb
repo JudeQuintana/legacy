@@ -11,7 +11,11 @@ module Legacy
     end
 
     def summon(spell)
-      @avatar if spell == self.summon_spell
+      if spell == self.summon_spell
+        @avatar
+      else
+        "nothing..."
+      end
     end
 
   end
