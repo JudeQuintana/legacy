@@ -1,22 +1,30 @@
 module Legacy
   class Pyramid
-    def self.build(type:)
-      new(type: type)
+    attr_reader :sarcophagus
+
+    def self.build(type:, sarcophagus:)
+      new(type: type, sarcophagus: sarcophagus)
     end
 
-    def initialize(pyramids: Legacy::YamlLoader.load_legacy_config["pyramids"], type:)
+    def initialize(type:,
+                   chambers: 3,
+                   doors: "triptych",
+                   sarcophagus:)
       @type = type
-      @pyramids = pyramids
-      @pyramid = pyramids[type]
+      @pyramids = Legacy::YamlLoader.load_legacy_config["pyramids"]
+      @display = @pyramids[type]
+      @chambers = chambers
+      @doors = doors
+      @sarcophagus = sarcophagus
     end
 
     def type=(new_type)
       @type = new_type
-      @pyramid = @pyramids[new_type]
+      @display = @pyramids[new_type]
     end
 
     def show
-      puts @pyramid
+      puts @display
     end
 
   end
