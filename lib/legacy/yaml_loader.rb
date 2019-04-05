@@ -22,7 +22,7 @@ module Legacy
                                         summon_spell: my_sarcophagus["summon_spell"],
                                         avatar: my_avatar)
 
-      Pyramid.build(type: my_pyramid_type, sarcophagus: new_sarcophagus)
+      Pyramid.new(type: my_pyramid_type, sarcophagus: new_sarcophagus)
     end
 
   end
