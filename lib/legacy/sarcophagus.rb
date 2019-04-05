@@ -11,6 +11,7 @@ module Legacy
     end
 
     def summon(spell)
+      puts
       puts @avatar if spell == self.summon_spell
     end
 
