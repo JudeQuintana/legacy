@@ -1,6 +1,6 @@
 module Legacy
   class Pyramid
-    attr_reader :sarcophagus
+    attr_reader :sarcophagus, :display
 
     def self.build(type:, sarcophagus:)
       new(type: type, sarcophagus: sarcophagus)
@@ -21,10 +21,6 @@ module Legacy
     def type=(new_type)
       @type = new_type
       @display = @pyramids[new_type]
-    end
-
-    def show
-      puts @display
     end
 
   end
